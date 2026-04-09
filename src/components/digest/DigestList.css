@@ -1,3 +1,10 @@
+.digest-list-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+}
+
 .digest-list {
   flex: 1;
   overflow-y: auto;

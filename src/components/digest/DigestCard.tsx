@@ -1,6 +1,7 @@
 import { formatDistanceToNow } from 'date-fns'
 import { useNavigate } from 'react-router-dom'
 import type { DigestItem } from '../../types/digest'
+import { useDigestStore } from '../../store/useDigestStore'
 import { Badge } from '../ui/Badge'
 import './DigestCard.css'
 
@@ -10,7 +11,9 @@ interface DigestCardProps {
 
 export function DigestCard({ item }: DigestCardProps) {
   const navigate = useNavigate()
+  const activePerspective = useDigestStore((s) => s.activePerspective)
   const timeAgo = formatDistanceToNow(new Date(item.publishedAt), { addSuffix: true })
+  const summary = item.perspectives[activePerspective].summary
 
   return (
     <article
@@ -25,14 +28,8 @@ export function DigestCard({ item }: DigestCardProps) {
         <span className="card-time">{timeAgo}</span>
       </div>
       <h2 className="card-headline">{item.headline}</h2>
-      <div className="card-footer">
-        <span className="card-source">{item.sourceName}</span>
-        <div className="card-perspectives">
-          <span className="perspective-chip">⌨️</span>
-          <span className="perspective-chip">📦</span>
-          <span className="perspective-chip">📈</span>
-        </div>
-      </div>
+      <p className="card-preview">{summary}</p>
+      <span className="card-source">{item.sourceName}</span>
     </article>
   )
 }

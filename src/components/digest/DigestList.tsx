@@ -4,6 +4,7 @@ import { digestService } from '../../services/digestService'
 import { useDigestStore } from '../../store/useDigestStore'
 import { DigestCard } from './DigestCard'
 import { DigestCardSkeleton } from '../ui/Skeleton'
+import { PerspectivePicker } from '../perspective/PerspectivePicker'
 import './DigestList.css'
 
 export function DigestList() {
@@ -24,37 +25,49 @@ export function DigestList() {
 
   if (loading) {
     return (
-      <div className="digest-list">
-        {Array.from({ length: 4 }, (_, i) => (
-          <DigestCardSkeleton key={i} />
-        ))}
+      <div className="digest-list-wrapper">
+        <PerspectivePicker />
+        <div className="digest-list">
+          {Array.from({ length: 4 }, (_, i) => (
+            <DigestCardSkeleton key={i} />
+          ))}
+        </div>
       </div>
     )
   }
 
   if (error) {
     return (
-      <div className="digest-empty">
-        <span className="empty-icon">⚠️</span>
-        <p>{error}</p>
+      <div className="digest-list-wrapper">
+        <PerspectivePicker />
+        <div className="digest-empty">
+          <span className="empty-icon">⚠️</span>
+          <p>{error}</p>
+        </div>
       </div>
     )
   }
 
   if (!items.length) {
     return (
-      <div className="digest-empty">
-        <span className="empty-icon">📭</span>
-        <p>No digest available yet.<br />Check back later.</p>
+      <div className="digest-list-wrapper">
+        <PerspectivePicker />
+        <div className="digest-empty">
+          <span className="empty-icon">📭</span>
+          <p>No digest available yet.<br />Check back later.</p>
+        </div>
       </div>
     )
   }
 
   return (
-    <div className="digest-list">
-      {items.map((item) => (
-        <DigestCard key={item.id} item={item} />
-      ))}
+    <div className="digest-list-wrapper">
+      <PerspectivePicker />
+      <div className="digest-list">
+        {items.map((item) => (
+          <DigestCard key={item.id} item={item} />
+        ))}
+      </div>
     </div>
   )
 }
