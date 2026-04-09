@@ -1,0 +1,55 @@
+.digest-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+  cursor: pointer;
+  transition: background 0.1s;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.digest-card:active {
+  background: var(--color-surface);
+}
+
+.card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-time {
+  font-size: var(--font-size-xs);
+  color: var(--color-hint);
+}
+
+.card-headline {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.4;
+  color: var(--color-text);
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-source {
+  font-size: var(--font-size-sm);
+  color: var(--color-hint);
+}
+
+.card-perspectives {
+  display: flex;
+  gap: 4px;
+}
+
+.perspective-chip {
+  font-size: 13px;
+  opacity: 0.6;
+}

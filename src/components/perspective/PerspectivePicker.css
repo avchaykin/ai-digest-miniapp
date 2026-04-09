@@ -1,0 +1,41 @@
+.perspective-picker {
+  display: flex;
+  gap: var(--space-xs);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.perspective-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 7px var(--space-sm);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-hint);
+  background: var(--color-surface);
+  transition: background 0.15s, color 0.15s;
+  white-space: nowrap;
+}
+
+.perspective-btn.active {
+  background: var(--color-accent);
+  color: var(--color-accent-text);
+}
+
+.perspective-icon {
+  font-size: 14px;
+  line-height: 1;
+}
+
+.perspective-label {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+}

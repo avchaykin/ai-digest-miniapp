@@ -1,0 +1,23 @@
+.digest-list {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.digest-empty {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  padding: var(--space-xl);
+  color: var(--color-hint);
+  text-align: center;
+  font-size: var(--font-size-md);
+  line-height: 1.5;
+}
+
+.empty-icon {
+  font-size: 40px;
+}
